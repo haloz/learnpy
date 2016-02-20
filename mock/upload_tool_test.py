@@ -6,11 +6,9 @@ import unittest
 
 class UploadToolServiceTestCase(unittest.TestCase):
 
-    @mock.patch.object(RmToolService, "rm")
-    def testUploadComplete(self, mock_rm):
-        r = RmToolService()
-        u = UploadToolService(r)
+    def testUploadComplete(self):
+        mock_r = mock.create_autospec(RmToolService)
+        u = UploadToolService(mock_r)
 
         u.upload_complete("test file")
-        mock_rm.assert_called_with("test file")
-        r.rm.assert_called_with("test file")
+        mock_r.rm.assert_called_with("test file")
