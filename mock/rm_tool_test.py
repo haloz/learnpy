@@ -1,5 +1,5 @@
 from rm_tool import RmToolService
-import mock
+from unittest import mock
 import unittest
 
 
