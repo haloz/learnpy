@@ -1,16 +1,11 @@
 from rm_tool import rm
-import tempfile
+import mock
 import unittest
-import os.path
 
 
 class RmToolTestCase(unittest.TestCase):
-    tmpfilepath = os.path.join(tempfile.gettempdir(), "tmp-testfile")
 
-    def setUp(self):
-        with open(self.tmpfilepath, "wt") as f:
-            f.write("delete test file")
-
-    def testRmTool(self):
-        rm(self.tmpfilepath)
-        self.assertFalse(os.path.isfile(self.tmpfilepath), "Failed to delete the file")
+    @mock.patch("rm_tool.os")
+    def testRmTool(self, mock_os):
+        rm("any file")
+        mock_os.remove.assert_called_with("any file")
