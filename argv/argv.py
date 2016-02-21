@@ -18,12 +18,13 @@ def _parseArguments(argv):
         "-u", dest="username", nargs="?", default=None, help="username")
     parser.add_argument(
         "-p", dest="password", nargs="?", default=None, help="password")
-    return parser.parse_args()
+    return vars(parser.parse_args())
 
 
 def main(argv):
     argvdict = _parseArguments(argv)
     print(argvdict)
+    print(argvdict["server"])
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
