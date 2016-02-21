@@ -1,49 +1,29 @@
 import sys
-import getopt
+import argparse
 
 
-def _usage():
-    print("""
-Usage:
-    -s jenkins server url incl. protocol    (*)
-    -u username
-    -p password
-    -j jenkins job name                     (*)
-    -t start date in format "yyyy.mm.dd"    (*)
-        """)
-    return
+def _parseArguments(argv):
+    parser = argparse.ArgumentParser(
+        description="QueryJenkins: a Jenkins build statistics tool.")
+    parser.add_argument(
+        "-s", dest="server", required=True,
+        help="jenkins server url incl. protocol")
+    parser.add_argument(
+        "-j", dest="jobname", required=True,
+        help="jenkins job name")
+    parser.add_argument(
+        "-d", dest="startdate", required=True,
+        help="start date in format \"yyyy.mm.dd\"")
+    parser.add_argument(
+        "-u", dest="username", nargs="?", default=None, help="username")
+    parser.add_argument(
+        "-p", dest="password", nargs="?", default=None, help="password")
+    return parser.parse_args()
 
 
 def main(argv):
-    server = username = password = jobname = startdate = None
-
-    try:
-        opts, args = getopt.getopt(argv, "s:u:p:j:d:")
-        if len(opts) < 3:
-            _usage()
-            sys.exit(2)
-
-        for opt, arg in opts:
-            if opt == "-s":
-                server = arg
-            elif opt == "-u":
-                username = arg
-            elif opt == "-p":
-                password = arg
-            elif opt == "-j":
-                jobname = arg
-            elif opt == "-d":
-                startdate = arg
-            print("opt: ", opt, ", arg: ", arg)
-
-    except getopt.GetoptError as err:
-        print(err)
-        _usage()
-        sys.exit(2)
-
-    if None in (server, jobname, startdate):
-        _usage()
-        sys.exit(2)
+    argvdict = _parseArguments(argv)
+    print(argvdict)
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
