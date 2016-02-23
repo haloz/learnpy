@@ -2,4 +2,8 @@
 class Printer(object):
 
     def printHello(self):
-        print("Hello")
+        output = self.getHelloString()
+        print(output)
+
+    def getHelloString(self):
+        return "Hello"
