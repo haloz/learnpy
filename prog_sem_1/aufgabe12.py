@@ -4,10 +4,7 @@ float-Wert wieder ausgibt. Geben Sie nach Abfrage durch das Programm den Wert 1.
 Sie, wenn Ihr Programm eine Millionen mal die 1 von Ihrem Wert subtrahieren würde?
 """
 
-import sys
-
-print("please enter a floating point number:")
-floatValue = float(sys.stdin.readline())
+floatValue = float(input("please enter a floating point number:"))
 
 print("my value = ", floatValue)
 print("my value minus 1 = ", floatValue - 1)

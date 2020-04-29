@@ -4,15 +4,11 @@ Benutzer fragt, ob weitere Werte zu bearbeiten sind, und ggf. wieder von vorn be
 die do-Anweisung, dann die while-Anweisung und zum Schluß die for-Anweisung. Machen Sie sich die Unterschiede klar!
 """
 
-import sys
-
 # note: there's no do .. while loop in python. You can do this with a while(true) loop:
-while True:
-    print("Enter the first number:")
-    firstNumber = int(sys.stdin.readline())
 
-    print("Enter the second number:")
-    secondNumber = int(sys.stdin.readline())
+while True:
+    firstNumber = int(input("Enter the first number:"))
+    secondNumber = int(input("Enter the second number:"))
 
     # python's ternary operator: https://book.pythontips.com/en/latest/ternary_operators.html
 
@@ -21,19 +17,15 @@ while True:
         firstNumber if firstNumber > secondNumber else secondNumber
     )
 
-    print("Do you like to do another round? (y/n)")
-    if sys.stdin.readline().rstrip() != "y":   # rstrip strips trailing whitespace/line breaks
+    if input("Do you like to do another round? (y/n)") != "y":
         break
 
 # while version
 
 skip = True
 while skip:
-    print("Enter the first number:")
-    firstNumber = int(sys.stdin.readline())
-
-    print("Enter the second number:")
-    secondNumber = int(sys.stdin.readline())
+    firstNumber = int(input("Enter the first number:"))
+    secondNumber = int(input("Enter the second number:"))
 
     # python's ternary operator: https://book.pythontips.com/en/latest/ternary_operators.html
 
@@ -42,8 +34,7 @@ while skip:
         firstNumber if firstNumber > secondNumber else secondNumber
     )
 
-    print("Do you like to do another round? (y/n)")
-    if sys.stdin.readline().rstrip() != "y":   # rstrip strips trailing whitespace/line breaks
+    if input("Do you like to do another round? (y/n)") != "y":
         skip = False
 
 

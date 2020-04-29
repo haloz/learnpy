@@ -9,10 +9,8 @@ berechnet und ausgibt.
 """
 
 import math
-import sys
 
-print("Please specify the side length of the cube:")
-sideLength = int(sys.stdin.readline())
+sideLength = int(input("Please specify the side length of the cube:"))
 
 print(
     "Surface area: ",

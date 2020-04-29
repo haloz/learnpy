@@ -6,14 +6,10 @@ In Analogie zur vorangegangen Wüfel-Aufgabe ist ein Programm für gerade Kreisz
 * das Volumen (=0,25*pi*d*d*h) berechnet und ausgibt.
 """
 
-import sys
 import math
 
-print("Enter the circular cylinder's diameter:")
-diameter = int(sys.stdin.readline())
-
-print("Enter the circular cylinder's height:")
-height = int(sys.stdin.readline())
+diameter = int(input("Enter the circular cylinder's diameter:"))
+height = int(input("Enter the circular cylinder's height:"))
 
 print(
     "Outer surface area: ",

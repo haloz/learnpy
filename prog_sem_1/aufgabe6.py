@@ -4,13 +4,8 @@ eingegebenen Zahlen auf zwei Variablen vom Typ int abspeichert und danach die Su
 Quotienten ausgibt.
 """
 
-import sys
-
-print("Please enter the 1st number:")
-firstNumber = int(sys.stdin.readline())
-
-print("Please enter the 2nd number:")
-secondNumber = int(sys.stdin.readline())
+firstNumber = int(input("Please enter the 1st number:"))
+secondNumber = int(input("Please enter the 2nd number:"))
 
 print("{}+{} = {}".format(
     firstNumber, secondNumber,

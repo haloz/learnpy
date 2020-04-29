@@ -6,11 +6,8 @@ dieser zwei Werte bestimmt und ausgibt.
 
 import sys
 
-print("Enter the first number:")
-firstNumber = int(sys.stdin.readline())
-
-print("Enter the second number:")
-secondNumber = int(sys.stdin.readline())
+firstNumber = int(input("Enter the first number:"))
+secondNumber = int(input("Enter the second number:"))
 
 # python's ternary operator: https://book.pythontips.com/en/latest/ternary_operators.html
 

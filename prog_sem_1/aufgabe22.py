@@ -15,7 +15,6 @@ Zufallszahlengenerators verwenden Sie die Systemzeit.
 """
 
 import random
-import sys
 
 playAgain = True
 numberOfRightGuesses = 0
@@ -28,9 +27,8 @@ while playAgain:
 
     won = False
     for trial in range(1, 4):
-        print("{}. Try:".format(trial))
         try:
-            guess = int(sys.stdin.readline().rstrip())
+            guess = int(input("{}. Try:".format(trial)))
         except ValueError:
             print("What? That's not a number. Next try...")
             continue
@@ -47,8 +45,7 @@ while playAgain:
     else:
         print("Boo! Better luck next time! My number was", randomNumber)
 
-    print("Play again? (y/n)")
-    if sys.stdin.readline().rstrip() == "n":
+    if input("Play again? (y/n)") == "n":
         playAgain = False
 
 print("You won {} out of {} games. Thank you!".format(numberOfRightGuesses, numberOfGames))

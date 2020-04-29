@@ -8,13 +8,9 @@ Berechnen Sie mit Hilfe der oben genannten rekusiven Definition zyklisch die ers
 Erhöhen Sie die Effizienz Ihres Programms, indem Sie anstatt der Rekursion mit einer for-Schleife arbeiten.
 """
 
-import sys
-
-print("Up to which n-th fibonacci number?")
-n = int(sys.stdin.readline().rstrip())
+n = int(input("Up to which n-th fibonacci number?"))
 
 # using recursion
-
 
 def fib(number, maximum):
     if number == 0:

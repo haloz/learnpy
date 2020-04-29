@@ -3,10 +3,7 @@ Schreiben Sie ein Programm, dass den n-ten Buchstaben des Alphabetes auf dem Bil
 der Zahl n gefragt hat
 """
 
-import sys
-
-print("Which n-th letter of the alphabet?")
-nth = int(sys.stdin.readline())
+nth = int(input("Which n-th letter of the alphabet?"))
 
 # see https://realpython.com/python-strings/#built-in-string-functions
 
