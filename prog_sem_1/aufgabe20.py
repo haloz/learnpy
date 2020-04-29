@@ -34,3 +34,12 @@ for number in range(1, n):
     lastLastNumber = result
 
 print(result)
+
+# using multiple assignment in one line
+
+lastNumber = 0
+lastLastNumber = 1
+for number in range(1, n):
+    lastNumber, lastLastNumber = lastLastNumber, lastNumber + lastLastNumber
+
+print(lastLastNumber)
