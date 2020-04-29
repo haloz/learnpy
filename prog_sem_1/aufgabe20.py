@@ -10,6 +10,7 @@ Erhöhen Sie die Effizienz Ihres Programms, indem Sie anstatt der Rekursion mit 
 
 n = int(input("Up to which n-th fibonacci number?"))
 
+
 # using recursion
 
 def fib(number, maximum):
@@ -43,3 +44,68 @@ for number in range(1, n):
     lastNumber, lastLastNumber = lastLastNumber, lastNumber + lastLastNumber
 
 print(lastLastNumber)
+
+
+max_fib_number = 10000000
+
+# a function that creates and returns a list of fib numbers up to given max. The caller of the function has to wait
+# until the whole function is done filling the list. Without a max this would run until out of memory.
+
+def fib_classical(max):
+    nums = []
+    current, nxt = 0, 1
+    while current < max:
+        current, nxt = nxt, nxt + current
+        nums.append(current)
+
+    return nums
+
+print("classic:")
+for item in fib_classical(max_fib_number):
+    print(item, end=", ")
+print()
+
+
+# generator version. this will "run forever" and never crash out of memory.
+
+def fib_generator():
+    current, nxt = 0, 1
+    while True:
+        current, nxt = nxt, nxt + current
+        yield current
+
+print("generator:")
+for next_number in fib_generator():
+    print(next_number, end=", ")
+    if next_number > max_fib_number:
+        break
+print()
+
+# we can even compose this ;) This new generator reuses the former generator, yielding only the even numbers that it
+# received
+
+def fib_even_numbers():
+    for n in fib_generator():
+        if n % 2 == 0:
+            yield n
+
+print("evens:")
+for next_number in fib_even_numbers():
+    print(next_number, end=", ")
+    if next_number > max_fib_number:
+        break
+print()
+
+# composed with another one
+
+def fib_divisible_by_three():
+    for n in fib_even_numbers():
+        if n % 3 == 0:
+            yield n
+
+print("evens, divisible by 3:")
+for next_number in fib_divisible_by_three():
+    print(next_number, end=", ")
+    if next_number > max_fib_number:
+        break
+print()
